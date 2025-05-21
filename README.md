@@ -108,8 +108,15 @@ Tập hợp **không có phần tử trùng**, không đảm bảo thứ tự.
 **Cú pháp:**
 
 ```python
-my_set = {1, 2, 3}
 empty_set = set()  # Không dùng {} vì {} là dict rỗng!
+set_1 = {1, 2, 3}
+set_2 = {5, 2, 4}
+
+set_3 = set_1.union(set_2) # Lấy tất cả các phần tử trong hai set
+set_4 = set_1.intersection(set_2) # Lấy các phần tử chung trong hai set
+set_5 = set_1.symmetric_difference(set_2) # Lấy các phần tử khác nhau trong hai set
+set_6 = set_1.difference(set_2) # Lấy các phần tử trong set_1 mà không có trong set_2
+set_7 = set_2.difference(set_1) # Lấy các phần tử trong set_2 mà không có trong set_1
 ```
 
 > ⚠️ `{}` sẽ tạo dict, không phải set!
@@ -143,3 +150,30 @@ print(my_dict["name"])
 > - Dùng `tuple` khi dữ liệu không cần thay đổi.
 > - Dùng `set` để lọc phần tử trùng lặp.
 > - Dùng `dict` để tra cứu theo khóa (key).
+
+# File handling
+
+```python
+file = open("filename.txt", "mode")
+```
+
+- Example:
+
+```python
+with open("my_file.txt", "a") as f:
+    f.write("\nTao la 'Python' ne!")
+
+with open("my_file.txt", "r") as f:
+    content = f.read()
+    print(content)
+```
+
+| Chế độ (`mode`) | Ý nghĩa                                | Ghi chú                                      |
+| --------------- | -------------------------------------- | -------------------------------------------- |
+| `'r'`           | **Read** – mở file chỉ để đọc          | Mặc định. Báo lỗi nếu file không tồn tại.    |
+| `'w'`           | **Write** – mở file để ghi             | Tạo mới hoặc _ghi đè_ nếu file đã tồn tại.   |
+| `'a'`           | **Append** – ghi thêm vào cuối file    | Không xóa nội dung cũ. Tạo file nếu chưa có. |
+| `'x'`           | **Create** – tạo file mới              | Báo lỗi nếu file đã tồn tại.                 |
+| `'b'`           | **Binary** – mở file ở chế độ nhị phân | Dùng kết hợp: `'rb'`, `'wb'`, `'ab'`...      |
+| `'t'`           | **Text** – mở file ở chế độ văn bản    | Mặc định. Dùng kết hợp: `'rt'`, `'wt'`...    |
+| `'+'`           | **Read & Write** – cho phép đọc và ghi | Dùng kết hợp: `'r+'`, `'w+'`, `'a+'`...      |
