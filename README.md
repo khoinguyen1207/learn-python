@@ -177,3 +177,24 @@ with open("my_file.txt", "r") as f:
 | `'b'`           | **Binary** – mở file ở chế độ nhị phân | Dùng kết hợp: `'rb'`, `'wb'`, `'ab'`...      |
 | `'t'`           | **Text** – mở file ở chế độ văn bản    | Mặc định. Dùng kết hợp: `'rt'`, `'wt'`...    |
 | `'+'`           | **Read & Write** – cho phép đọc và ghi | Dùng kết hợp: `'r+'`, `'w+'`, `'a+'`...      |
+
+# Generator expression
+
+Cú pháp cơ bản
+
+```python
+(expression for item in iterable if condition)
+
+Ex:
+gen = (x**2 for x in range(5))
+print(gen)           # <generator object ...>
+print(next(gen))     # 0
+print(next(gen))     # 1
+
+```
+
+Rất giống list comprehension, chỉ khác là:
+
+- List comprehension dùng []
+
+- Generator expression dùng () (không phải tuple nhé)
