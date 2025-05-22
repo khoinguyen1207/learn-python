@@ -91,11 +91,13 @@ my_dict["sex"] = "Male"
 
 # For loop
 my_list = [1, 2, 3, 4, 5]
-for i in range(len(my_list)):
-    print(f"Index: {i}, Value: {my_list[i]}")  # In ra index và value của list
+# for i in range(len(my_list)):
+#     print(f"Index: {i}, Value: {my_list[i]}")  # In ra index và value của list
 
 
 # Copy file
+import datetime
+import json
 import shutil
 import os
 
@@ -115,7 +117,7 @@ with open("my_file.txt", "a") as f:
 
 with open("my_file.txt", "r") as f:
     content = f.read()
-    print(content)
+    # print(content)
 
 # with là context manager, nó sẽ tự động quản lý tài nguyên
 
@@ -136,8 +138,8 @@ class Student(Person):
 
 
 my_stu = Student("John", 20)
-my_stu.greet()
-print(my_stu.age)
+# my_stu.greet()
+# print(my_stu.age)
 
 # ============================================
 from abc import ABC, abstractmethod
@@ -157,3 +159,32 @@ class Dog(Animal):
 class Cat(Animal):
     def sound(self):
         return "Meow!"
+
+
+#  Dump and Load JSON
+from datetime import date, datetime
+import json
+
+initial_dict = {
+    "name": "John",
+    "age": 30,
+    "city": "New York",
+    "hobbies": ["reading", "traveling"],
+    "dob": datetime.now(),
+}
+
+# with open("data.json", "w") as f:
+#     json.dump(
+#         initial_dict,
+#         fp=f,
+#         indent=4,
+#         default=lambda x: x.isoformat() if isinstance(x, datetime) else str(x),
+#     )
+
+
+with open("data.json") as f:
+    my_content = json.load(f)
+
+print(my_content)
+my_content["dob"] = datetime.fromisoformat(my_content["dob"])
+print(my_content)

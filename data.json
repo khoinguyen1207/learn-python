@@ -1,0 +1,10 @@
+{
+    "name": "John",
+    "age": 30,
+    "city": "New York",
+    "hobbies": [
+        "reading",
+        "traveling"
+    ],
+    "dob": "2025-05-22T14:39:32.894534"
+}
