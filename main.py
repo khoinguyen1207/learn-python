@@ -118,3 +118,42 @@ with open("my_file.txt", "r") as f:
     print(content)
 
 # with là context manager, nó sẽ tự động quản lý tài nguyên
+
+
+# OOP
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def greet(self):
+        print(f"Hello, my name is {self.name}.")
+
+
+class Student(Person):
+    def __init__(self, name, age):
+        Person.__init__(self, name)
+        self.age = age
+
+
+my_stu = Student("John", 20)
+my_stu.greet()
+print(my_stu.age)
+
+# ============================================
+from abc import ABC, abstractmethod
+
+
+class Animal(ABC):
+    @abstractmethod
+    def sound(self):
+        pass
+
+
+class Dog(Animal):
+    def sound(self):
+        return "Woof!"
+
+
+class Cat(Animal):
+    def sound(self):
+        return "Meow!"
