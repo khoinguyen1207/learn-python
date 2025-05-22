@@ -275,3 +275,15 @@ if re.match(r"^0\d{9}$", sdt):
 else:
     print("Không hợp lệ")
 ```
+
+# **name** và **main**
+
+```python
+if __name__ == "__main__":
+```
+
+là một cấu trúc đặc biệt trong Python được dùng để kiểm tra xem file hiện tại có đang được chạy trực tiếp hay không.
+
+- Nếu chạy file trực tiếp bằng python file.py, thì **name** sẽ là "**main**", nên code trong if sẽ được thực thi.
+
+- Nếu file bị import từ module khác, thì **name** sẽ là tên của module đó, nên code trong if sẽ không chạy.
