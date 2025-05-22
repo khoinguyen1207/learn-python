@@ -197,4 +197,81 @@ Rất giống list comprehension, chỉ khác là:
 
 - List comprehension dùng []
 
-- Generator expression dùng () (không phải tuple nhé)
+- Generator expression dùng () (không phải tuple)
+
+# Exception handling
+
+```python
+try:
+    # Code có thể gây ra lỗi
+except ExceptionType:
+    # Code xử lý lỗi
+else:
+    # Chạy nếu không có lỗi xảy ra trong try
+finally:
+    # Luôn chạy, dù có lỗi hay không
+
+
+
+# Ex:
+def divide(a, b):
+    try:
+        result = a / b
+    except ZeroDivisionError:
+        print("Lỗi: Không thể chia cho 0.")
+    else:
+        print("Kết quả:", result)
+    finally:
+        print("Kết thúc hàm divide.")
+
+# Gọi hàm
+divide(10, 2)
+divide(5, 0)
+```
+
+# Regular Expression trong Python
+
+| Hàm                                | Mô tả                                  |
+| ---------------------------------- | -------------------------------------- |
+| `re.match(pattern, string)`        | Kiểm tra chuỗi khớp với pattern từ đầu |
+| `re.search(pattern, string)`       | Tìm phần khớp đầu tiên trong chuỗi     |
+| `re.findall(pattern, string)`      | Trả về tất cả phần khớp dưới dạng list |
+| `re.sub(pattern, replace, string)` | Thay thế phần khớp bằng chuỗi khác     |
+| `re.split(pattern, string)`        | Tách chuỗi theo pattern                |
+
+| Pattern  | Ý nghĩa                            |              |
+| -------- | ---------------------------------- | ------------ |
+| `.`      | Bất kỳ ký tự nào                   |              |
+| `\d`     | Chữ số (0–9)                       |              |
+| `\D`     | Không phải chữ số                  |              |
+| `\w`     | Ký tự chữ + số + `_`               |              |
+| `\W`     | Không phải ký tự `\w`              |              |
+| `\s`     | Khoảng trắng (space, tab, newline) |              |
+| `\S`     | Không phải khoảng trắng            |              |
+| `^`      | Bắt đầu chuỗi                      |              |
+| `$`      | Kết thúc chuỗi                     |              |
+| \`a      | b\`                                | `a` hoặc `b` |
+| `*`      | 0 hoặc nhiều lần                   |              |
+| `+`      | 1 hoặc nhiều lần                   |              |
+| `?`      | 0 hoặc 1 lần                       |              |
+| `{n}`    | Lặp đúng `n` lần                   |              |
+| `[abc]`  | Một trong các ký tự a, b hoặc c    |              |
+| `[^abc]` | Không phải a, b hoặc c             |              |
+| `(abc)`  | Nhóm ký tự                         |              |
+
+- Example:
+
+```python
+text = "Liên hệ: contact@gmail.com hoặc admin@abc.edu"
+emails = re.findall(r"[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+", text)
+print(emails)
+# ['contact@gmail.com', 'admin@abc.edu']
+```
+
+```python
+sdt = "0988123456"
+if re.match(r"^0\d{9}$", sdt):
+    print("Số điện thoại hợp lệ")
+else:
+    print("Không hợp lệ")
+```
